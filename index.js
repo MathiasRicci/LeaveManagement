@@ -1,4 +1,10 @@
 const main = document.querySelector("main");
+const calendar = document.getElementById("calendar");
+const information = document.getElementById("information");
+
+//-----------------------------------------
+//       Employee Information
+//-----------------------------------------
 let employee = {
   fname: "Mathias",
   lname: "Ricci",
@@ -27,8 +33,8 @@ showHolidays = () => {
     )
     .join("");
   // Display into main
-  main.innerHTML = `
-      <h2>${employee.fname} ${employee.lname}</h2>
+  calendar.innerHTML = `
+      <h2>Calendar for ${employee.fname} ${employee.lname}</h2>
       <h3>Holidays you booked:</h3>
       <ul id="holidayList">
       </ul>
@@ -43,27 +49,28 @@ showHolidays = () => {
 
 bookHolidays = () => {
   // Display into main
-  main.innerHTML = `
+  information.innerHTML = `
+  <h2>Leave Request</h2>
   <form id="bookingForm">
-  <label for="start">Start date included:</label>      
-  <input
-  type="date"
-  id="startDate"
-  min="2022-01-01"
-  />
-  <br>
-  <br>
-  <label for="end">End date included:</label>      
-  <input
-  type="date"
-  id="endDate"
-  />
-  <br>
-  <br>
-  <p id="dayBooked"></p>
-  <br>
-  <br>
-  <button type="submit">Request</button>
+    <label for="start">Start date included:</label>      
+    <input
+    type="date"
+    id="startDate"
+    min="2022-01-01"
+    />
+    <br>
+    <br>
+    <label for="end">End date included:</label>      
+    <input
+    type="date"
+    id="endDate"
+    />
+    <br>
+    <br>
+    <p id="dayBooked"></p>
+    <br>
+    <br>
+    <button type="submit">Request</button>
   </form>
   `;
   // Event listener on Button
@@ -158,5 +165,5 @@ dateParserToDisplay = (string) => {
 //-----------------------------------------
 //          Function call
 //-----------------------------------------
-
+showHolidays();
 bookHolidays();
